@@ -1,10 +1,9 @@
-from Player import Player
 from typing import List
 
 class Tile:
     def __init__(self, sequence):
         self.sequence = sequence
-        self.player:Player = None
+        self.player = None
         self.is_Special = True if sequence%5 == 0 else False
         
     def Is_Special(self):

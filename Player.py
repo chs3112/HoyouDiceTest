@@ -1,10 +1,9 @@
 import random as rd
 from Tile_Map import Map, Tile
-from Game import Game
 
 class Player:
     #생성자
-    def __init__(self, sequence:int, game:Game):
+    def __init__(self, sequence:int, game):
         self.sequence = sequence
         self.location = sequence*10;   
         self.tile: Tile = Map.tiles[self.location]

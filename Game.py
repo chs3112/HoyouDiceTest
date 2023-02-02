@@ -1,10 +1,10 @@
-from Tile_Map import Tile, Map
 from Player import Player
 from typing import List
 
 
-def Create_Player():
-    players:List[Player] = [Player(i) for i in range(4)]
+
+def Create_Player(game):
+    players:List[Player] = [Player(i, game) for i in range(4)]
     
     return players
 
@@ -12,7 +12,7 @@ def Create_Player():
 class Game:
     def __init__(self):
         self.turn = 0
-        self.players:List[Player] = Create_Player()
+        self.players:List[Player] = Create_Player(self)
         self.Start()
         
     def Start(self):
