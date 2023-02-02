@@ -14,3 +14,8 @@ class Tile:
 
 class Map:
     tiles:List[Tile] = [Tile(i) for i in range(40)]
+    
+    @staticmethod
+    def SetTile():
+        for tile in Map.tiles:
+            tile.player = None
