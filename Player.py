@@ -1,6 +1,3 @@
-import random as rd
-
-
 class Player:
     #생성자
     def __init__(self, sequence):
@@ -38,23 +35,3 @@ class Player:
         self.location -= 40 if self.location >= 40 else 0
         
         
-
-def Creat_Player(maxPlayer):
-    players = [Player(i) for i in range(maxPlayer)]
-    
-    return players
-
-def game():
-    turn = 1
-    players = Creat_Player(4);
-    while turn > 10:
-        players
-    
-
-def main():
-    turn = 0;
-    
-    pass
-
-if __name__ == '__main__':
-    main()
