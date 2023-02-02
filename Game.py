@@ -15,6 +15,7 @@ class Save:
     point = [0,0,0,0]
     n_travel_distance = [0,0,0,0]
     n_die = [0,0,0,0]
+    error = 0
 
     
     @staticmethod
@@ -25,6 +26,7 @@ class Save:
                 \n획득 점수 : {Save.point[i]/Save.repeat}\
                 \n이동 거리 : {Save.n_travel_distance[i]/Save.repeat}\
                 \n죽은 횟수 : {Save.n_die[i]/Save.repeat}")
+        print(f"오류 : {Save.error}")
 
 
 class Game:
@@ -47,6 +49,8 @@ class Game:
         self.players[self.postPlayer].TurnStart();
         
     def GameEnd(self):
+        if sum(Save.n_Attack) != sum(Save.n_die):
+            Save.error += 1;
         for i in range(4):
             Save.n_rollDice[i] += self.players[i].n_rollDice
             Save.n_Attack[i] += self.players[i].n_attack
