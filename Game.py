@@ -9,7 +9,7 @@ def Create_Player():
     return players
 
 
-class Game():
+class Game:
     def __init__(self):
         self.turn = 0
         self.players:List[Player] = Create_Player()
@@ -33,7 +33,7 @@ class Game():
             
 
 def main():
-    pass
+    Game()
 
 
 if __name__ == '__main__':
