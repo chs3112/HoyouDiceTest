@@ -9,6 +9,7 @@ def Create_Player(game):
     return players
 
 class Save:
+    repeat = 0
     n_rollDice = [0,0,0,0]
     n_Attack = [0,0,0,0]
     point = [0,0,0,0]
@@ -19,11 +20,11 @@ class Save:
     @staticmethod
     def nprint():
         for i in range(4):
-            print(f"{i}\n굴린 횟수 : {Save.n_rollDice[i]/100}\
-                \n공격 횟수 : {Save.n_Attack[i]/100}\
-                \n획득 점수 : {Save.point[i]/100}\
-                \n이동 거리 : {Save.n_travel_distance[i]/100}\
-                \n죽은 횟수 : {Save.n_die[i]/100}")
+            print(f"{i}\n굴린 횟수 : {Save.n_rollDice[i]/Save.repeat}\
+                \n공격 횟수 : {Save.n_Attack[i]/Save.repeat}\
+                \n획득 점수 : {Save.point[i]/Save.repeat}\
+                \n이동 거리 : {Save.n_travel_distance[i]/Save.repeat}\
+                \n죽은 횟수 : {Save.n_die[i]/Save.repeat}")
 
 
 class Game:
@@ -55,7 +56,8 @@ class Game:
             
 
 def main():
-    for i in range(100):
+    Save.repeat = int(input("반복 횟수 : "))
+    for i in range(Save.repeat):
         Game()
     Save.nprint()
         
