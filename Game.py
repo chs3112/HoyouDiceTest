@@ -1,4 +1,4 @@
-from Tile import Tile, Map
+from Tile_Map import Tile, Map
 from Player import Player
 from typing import List
 

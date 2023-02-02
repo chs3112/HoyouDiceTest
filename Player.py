@@ -1,5 +1,5 @@
 import random as rd
-from Tile import Map, Tile
+from Tile_Map import Map, Tile
 from Game import Game
 
 class Player:
