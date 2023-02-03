@@ -1,27 +1,7 @@
 from Player import Player
 from typing import List
 from Tile_Map import Map
-
-
-
-
-class Save:
-    repeat = 0
-    n_rollDice = [0,0,0,0]
-    n_Attack = [0,0,0,0]
-    point = [0,0,0,0]
-    n_travel_distance = [0,0,0,0]
-    n_die = [0,0,0,0]
-
-    
-    @staticmethod
-    def nprint():
-        for i in range(4):
-            print(f"{i}\n굴린 횟수 : {Save.n_rollDice[i]/Save.repeat}\
-                \n공격 횟수 : {Save.n_Attack[i]/Save.repeat}\
-                \n획득 점수 : {Save.point[i]/Save.repeat}\
-                \n이동 거리 : {Save.n_travel_distance[i]/Save.repeat}\
-                \n죽은 횟수 : {Save.n_die[i]/Save.repeat}")
+from Save import Save
 
 
 class Game:
@@ -50,12 +30,13 @@ class Game:
         self.players[self.postPlayer].TurnStart();
         
     def GameEnd(self):
-        for i in range(4):
-            Save.n_rollDice[i] += self.players[i].n_rollDice
-            Save.n_Attack[i] += self.players[i].n_attack
-            Save.point[i] += self.players[i].point
-            Save.n_travel_distance[i] += self.players[i].n_travel_distance
-            Save.n_die[i] += self.players[i].n_die
+        n_rollDice = [self.players[i].n_rollDice for i in range(4)]
+        n_attack = [self.players[i].n_attack for i in range(4)]
+        point = [self.players[i].point for i in range(4)]
+        n_travel_distance = [self.players[i].n_travel_distance for i in range(4)]
+        n_die = [self.players[i].n_die for i in range(4)]
+        Save.DataSave(n_rollDice, n_attack, point, n_travel_distance, n_die)
+        
             
 
 def main():

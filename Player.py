@@ -51,7 +51,7 @@ class Player:
         pass
     
     def PostPass(self):
-        if self.location == self.sequence*10:
+        if self.tile.is_Special:
             self.AddPoint(1)
     
     
